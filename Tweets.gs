@@ -158,10 +158,11 @@ function timeline(user_id, fields){
  * @return {Object} returns parsed response
  */
 function getTweets(ids, fields){
-  if( !Array.isArray(ids) ) throw 'ids must be an array of tweet ids'
+  if( !Array.isArray(ids) ) throw 'ids must be an array of tweet ids';
   let endpoint = ENDPOINT.concat('tweets');
   if( checkNonPublicMetrics_(fields) ) return fetchGetOauth_(endpoint,{...{ids:ids},...fields});
-  if( fields ) endpoint += `?ids=${ids.join(',')}&`.concat(fieldsToQuery_(fields));
+  endpoint += '?ids='.concat(ids.join(','));
+  if( fields ) endpoint += '&'.concat(fieldsToQuery_(fields));
   return fetchGetBearer_(endpoint);
 }
 
@@ -173,6 +174,7 @@ function getTweets(ids, fields){
  * @return {Object} returns parsed response
  */
 function getTweet(id, fields){
+  if( !id ) throw 'tweet id is requiered';
   let endpoint = ENDPOINT.concat(`tweets/${id}`);
   if( checkNonPublicMetrics_(fields) ) return fetchGetOauth_(endpoint, fields);
   if(fields) endpoint += '?'.concat(fieldsToQuery_(fields));

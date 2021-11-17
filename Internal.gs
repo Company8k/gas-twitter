@@ -1,9 +1,24 @@
 // HTTP related
 
 /**
+ * Fetch Twitter API via GET Both ways
+ *
+ * @param {string} endpoint Entpoint to fetch
+ * @param {Object} params Request Params
+ * @return {Object} parsed response
+ */
+function fetchGet_( endpoint,params ){
+  if( checkNonPublicMetrics_(params) ) return fetchGetOauth_(endpoint, params);
+  if(params) endpoint += '?'.concat(fieldsToQuery_(params));
+  return fetchGetBearer_(endpoint);
+}
+
+
+/**
  * Fetch Twitter API via GET and OAuth signature
  *
  * @param {string} url URL to fetch
+ * @param {Object} params Request Params
  * @return {Object} returns the parsed response
  */
 function fetchGetOauth_(url, params){

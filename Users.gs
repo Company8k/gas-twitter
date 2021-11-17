@@ -28,10 +28,7 @@ function mute( id,target_user_id ){ return fetchPost_(ENDPOINT.concat(`users/${i
  */
 function getMutes( id,fields ){
   if( !id ) throw 'User id is requiered';
-  let endpoint = ENDPOINT.concat(`users/${id}/muting`);
-  if( checkNonPublicMetrics_(fields) ) return fetchGetOauth_(endpoint, fields);
-  if(fields) endpoint += '?'.concat(fieldsToQuery_(fields));
-  return fetchGetBearer_(endpoint);
+  return fetchGet_(ENDPOINT.concat(`users/${id}/muting`),fields)
 }
 
 
@@ -65,10 +62,7 @@ function block( id,target_user_id ){ return fetchPost_(ENDPOINT.concat(`users/${
  */
 function getBlocks( id,fields ){
   if( !id ) throw 'User id is requiered';
-  let endpoint = ENDPOINT.concat(`users/${id}/blocking`);
-  if( checkNonPublicMetrics_(fields) ) return fetchGetOauth_(endpoint, fields);
-  if(fields) endpoint += '?'.concat(fieldsToQuery_(fields));
-  return fetchGetBearer_(endpoint);
+  return fetchGet_(ENDPOINT.concat(`users/${id}/blocking`),fields);
 }
 
 
@@ -106,10 +100,7 @@ function follow( id, target_user_id ){ return fetchPost_(ENDPOINT.concat(`users/
  */
 function followers( id, fields){
   if( !id ) throw 'User id is requiered';
-  let endpoint = ENDPOINT.concat(`users/${id}/followers`);
-  if( checkNonPublicMetrics_(fields) ) return fetchGetOauth_(endpoint, fields);
-  if(fields) endpoint += '?'.concat(fieldsToQuery_(fields));
-  return fetchGetBearer_(endpoint);
+  return fetchGet_(ENDPOINT.concat(`users/${id}/followers`),fields);
 }
 
 /**
@@ -121,10 +112,7 @@ function followers( id, fields){
  */
 function following( id, fields){
   if( !id ) throw 'User id is requiered';
-  let endpoint = ENDPOINT.concat(`users/${id}/following`);
-  if( checkNonPublicMetrics_(fields) ) return fetchGetOauth_(endpoint, fields);
-  if(fields) endpoint += '?'.concat(fieldsToQuery_(fields));
-  return fetchGetBearer_(endpoint);
+  return fetchGet_(ENDPOINT.concat(`users/${id}/following`),fields);
 }
 
 
@@ -139,10 +127,7 @@ function following( id, fields){
  */
 function getUserByUsername( username, fields){
   if( !username ) throw 'username is requiered';
-  let endpoint = ENDPOINT.concat(`users/by/username/${username}`);
-  if( checkNonPublicMetrics_(fields) ) return fetchGetOauth_(endpoint, fields);
-  if(fields) endpoint += '?'.concat(fieldsToQuery_(fields));
-  return fetchGetBearer_(endpoint);
+  return fetchGet_(ENDPOINT.concat(`users/by/username/${username}`),fields);
 }
 
 /**
@@ -170,10 +155,7 @@ function getUsersByUsername( usernames,fields ){
  */
 function getUser(id, fields){
   if( !id ) throw 'user id is requiered';
-  let endpoint = ENDPOINT.concat(`users/${id}`);
-  if( checkNonPublicMetrics_(fields) ) return fetchGetOauth_(endpoint, fields);
-  if(fields) endpoint += '?'.concat(fieldsToQuery_(fields));
-  return fetchGetBearer_(endpoint);
+  return fetchGet_(ENDPOINT.concat(`users/${id}`),fields);
 }
 
 /**

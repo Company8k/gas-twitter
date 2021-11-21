@@ -38,7 +38,7 @@ function like(id, tweet_id){ return fetchPost_(ENDPOINT.concat(`users/${id}/like
  * @return {Object} returns parsed response
  */
 function likedTweets(id, fields){
-  if( !id ) throw 'User ID of the user is requierd';
+  if( !id ) throw 'User ID of the user is required';
   return fetchGet_(ENDPOINT.concat(`users/${id}/liked_tweets`),fields);
 }
 
@@ -52,7 +52,7 @@ function likedTweets(id, fields){
  * @return {Object} returns parsed response
  */
 function likingUsers(id, fields){
-  if( !id ) throw 'Tweet ID of the Tweet is requierd';
+  if( !id ) throw 'Tweet ID of the Tweet is required';
   return fetchGet_(ENDPOINT.concat(`tweets/${id}/liking_users`),fields);
 }
 
@@ -86,7 +86,7 @@ function retweet(id, tweet_id){ return fetchPost_(ENDPOINT.concat(`users/${id}/r
  * @return {Object} returns parsed response
  */
 function retweetedBy(id, fields){
-  if( !id ) throw 'id is requierd';
+  if( !id ) throw 'id is required';
   return fetchGet_(ENDPOINT.concat(`tweets/${id}/retweeted_by`),fields);
 }
 
@@ -117,7 +117,7 @@ function counts(query, options){
  * @return {Object} returns parsed response
  */
 function mentions(id, fields){
-  if( !id ) throw 'user_id is requiered';
+  if( !id ) throw 'user_id is required';
   return fetchGet_(ENDPOINT.concat(`users/${id}/mentions`),fields);
 }
 
@@ -129,7 +129,8 @@ function mentions(id, fields){
  * @return {Object} returns parsed response
  */
 function timeline(id, fields){
-  if( !id ) throw 'user_id is requiered'; return fetchGet_(ENDPOINT.concat(`users/${id}/tweets`),fields);
+  if( !id ) throw 'user_id is required';
+  return fetchGet_(ENDPOINT.concat(`users/${id}/tweets`),fields);
 }
 
 // Manage tweets
@@ -158,7 +159,7 @@ function getTweets(ids, fields){
  * @return {Object} returns parsed response
  */
 function getTweet(id, fields){
-  if( !id ) throw 'tweet id is requiered';
+  if( !id ) throw 'tweet id is required';
   return fetchGet_(ENDPOINT.concat(`tweets/${id}`),fields);
 }
 
@@ -190,7 +191,7 @@ function deleteTweet(id){ fetchDelete_(`${ENDPOINT}tweets/${id}`); }
 function search(query, fields){
   let endpoint = ENDPOINT + 'tweets/search/recent';
   if( !query ) throw 'query is required'
-  endpoint += '?query='.concat(percentEncode_(query));
+  endpoint += '?query='.concat(query);
   if(fields) endpoint += '&'.concat(fieldsToQuery_(fields));
   return fetchGetBearer_(endpoint);
 }

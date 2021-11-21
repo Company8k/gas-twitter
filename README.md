@@ -4,7 +4,7 @@ This library enables programmatic access to Twitter. Except for Spaces and Strea
 
 ## Use
 
-To use this library select "Add a library" in the Apps Script editor and paste the following id `1RmiFeiuIGCmuVXQOJAHjxrjRBwdAiSyqib_8vYl5thOwB3QEctwI5U_I`. In order to enable the autocomplete future you should choose `Twitter` for the identifier.
+To use this library select "Add a library" in the Apps Script editor and paste the following id `1RmiFeiuIGCmuVXQOJAHjxrjRBwdAiSyqib_8vYl5thOwB3QEctwI5U_I`. In order to enable the autocomplete future you should choose `Twitter` for the identifier or see [Deployment Docs](https://script.google.com/macros/library/d/1RmiFeiuIGCmuVXQOJAHjxrjRBwdAiSyqib_8vYl5thOwB3QEctwI5U_I/3).
 
 ### Initialization
 
